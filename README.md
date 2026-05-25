@@ -87,26 +87,17 @@ events
 
 # 📸 Project Screenshots
 
-## 🏠 Dashboard
+## 🏠 Main Dashboard
 
-```md
-![Dashboard](screenshots/dashboard.png)
-```
-
-Shows:
-- Book Borrowing
-- Teacher–Student Interaction
-- Campus Events
+![Main Dashboard](screenshots/main.png)
 
 ---
 
 ## 📚 Book Borrowing Module
 
-```md
-![Book Borrowing](screenshots/book-borrowing.png)
-```
+![Book Borrowing](screenshots/Borrow.png)
 
-Features:
+### Features:
 - Upload books
 - Borrow books
 - Track copies
@@ -116,11 +107,9 @@ Features:
 
 ## 💬 Teacher–Student Interaction
 
-```md
-![Messaging System](screenshots/message-system.png)
-```
+![Messaging System](screenshots/interaction.png)
 
-Features:
+### Features:
 - Send messages
 - Branch-wide announcements
 - Real-time communication
@@ -129,9 +118,12 @@ Features:
 
 ## 🎉 Campus Events Module
 
-```md
-![Campus Events](screenshots/campus-events.png)
-```
+![Campus Events](screenshots/events.png)
+
+### Features:
+- Post events
+- Display event details
+- Dynamic event listing
 
 Features:
 - Post events
