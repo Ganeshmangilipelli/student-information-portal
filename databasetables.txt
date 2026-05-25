@@ -1,0 +1,60 @@
+CREATE TABLE teachers (
+    ->     id INT(11) AUTO_INCREMENT PRIMARY KEY,
+    ->     name VARCHAR(255) NOT NULL,
+    ->     roll_no VARCHAR(20) UNIQUE NOT NULL,
+    ->     email VARCHAR(255) UNIQUE NOT NULL,
+    ->     password VARCHAR(255) NOT NULL,
+    ->     designation VARCHAR(255) NOT NULL
+    -> );
+
+ CREATE TABLE students (
+    ->     id INT(11) AUTO_INCREMENT PRIMARY KEY,
+    ->     name VARCHAR(255) NOT NULL,
+    ->     roll_no VARCHAR(20) UNIQUE NOT NULL,
+    ->     email VARCHAR(255) UNIQUE NOT NULL,
+    ->     password VARCHAR(255) NOT NULL,
+    ->     branch VARCHAR(255) NOT NULL
+    -> );
+
+
+CREATE TABLE messages (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    sender_type ENUM('student', 'teacher') NOT NULL,
+    sender_id VARCHAR(50) NOT NULL,
+    recipient_type ENUM('student', 'teacher', 'branch') NOT NULL,
+    recipient_id VARCHAR(50) NOT NULL, -- roll_no, teacher_id, or branch
+    message TEXT NOT NULL,
+    timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+ CREATE TABLE books (
+    ->     id INT(11) AUTO_INCREMENT PRIMARY KEY,                  -- Unique book ID
+    ->     title VARCHAR(255) NOT NULL,                            -- Book title
+    ->     author VARCHAR(255) NOT NULL,                           -- Author of the book
+    ->     isbn VARCHAR(20) UNIQUE NOT NULL,                       -- ISBN for unique identification
+    ->     genre VARCHAR(100),                                     -- Genre of the book (e.g., Fiction, Science, etc.)
+    ->     picture_url VARCHAR(255),                               -- URL of the book's image (for the book cover)
+    ->     shelf_location VARCHAR(255),                            -- The location of the book in the library
+    ->     year_of_publication INT(4),                             -- Year the book was published
+    ->     total_copies INT(11) NOT NULL,                          -- Total number of copies available in the library
+    ->     available_copies INT(11) NOT NULL,                      -- Number of copies currently available for borrowing
+    ->     availability_status ENUM('Available', 'Borrowed', 'Reserved') DEFAULT 'Available',  -- Status of the book
+    ->     uploaded_by VARCHAR(20),                                -- Roll number of the uploader
+    ->     phone_number VARCHAR(15),                               -- Phone number of the uploader
+    ->     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,         -- Timestamp when the book record was created
+    ->     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP  -- Last update
+    -> );
+Query OK, 0 rows affected, 4 warnings (0.21 sec)
+
+CREATE TABLE borrowed_books (
+    ->     id INT(11) AUTO_INCREMENT PRIMARY KEY,
+    ->     user_id VARCHAR(50) NOT NULL,
+    ->     isbn VARCHAR(20) NOT NULL,
+    ->     borrow_date DATE NOT NULL,
+    ->     return_date DATE,
+    ->     status ENUM('borrowed', 'returned', 'overdue') NOT NULL DEFAULT 'borrowed',
+    ->     image VARCHAR(255),  -- store image path/filename
+    ->     uploaded_by_phone_number VARCHAR(15),  -- store phone number of the user who uploaded the book
+    ->     FOREIGN KEY (isbn) REFERENCES books(isbn) ON DELETE CASCADE
+    -> );
+Query OK, 0 rows affected, 1 warning (0.09 sec)
