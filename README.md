@@ -38,16 +38,13 @@ A full-stack Student Information Portal designed to improve academic communicati
 
 ---
 
-## Project Structure
+## Installation & Setup
 
-```bash
-Student-Information-Portal/
-│
-├── assets/
-├── css/
-├── js/
-├── database/
-├── index.php
-├── login.php
-├── dashboard.php
-└── README.md
+1. Install XAMPP
+2. Move the project folder to `htdocs`
+3. Start Apache and MySQL from XAMPP
+4. Import the database using phpMyAdmin
+5. Open the project in browser:
+
+```text
+http://localhost/student-information-portal
